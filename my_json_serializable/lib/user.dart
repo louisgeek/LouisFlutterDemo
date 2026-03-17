@@ -3,9 +3,9 @@ import 'package:my_json_serializable/user_info.dart';
 
 part 'user.g.dart'; //声明包含子文件
 
-@JsonSerializable(
-  explicitToJson: true, //包含嵌套对象的需要设置为 true，遇到嵌套对象字段，显式调用其 toJson 方法
-) //json_annotation 的注解 flutter pub run build_runner build
+//json_annotation 的注解
+//包含嵌套对象的需要设置为 true，遇到嵌套对象字段，显式调用其 toJson 方法（只影响 toJson）
+@JsonSerializable(explicitToJson: true)
 class User {
   final int id;
   final String name;
@@ -27,7 +27,8 @@ class User {
     required this.userInfo,
   });
 
-  factory User.fromJson(Map<String, dynamic> json) =>
-      _$UserFromJson(json); //工厂构造函数
+  //工厂构造函数
+  factory User.fromJson(Map<String, dynamic> json) => _$UserFromJson(json);
+
   Map<String, dynamic> toJson() => _$UserToJson(this);
 }
