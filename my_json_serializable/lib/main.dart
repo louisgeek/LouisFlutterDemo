@@ -129,7 +129,10 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   void initState() {
     super.initState();
+    _initTest();
+  }
 
+  void _initTest() {
     //1 对象（嵌套对象、嵌套 List<Xxx>）
     UserInfo userInfo = UserInfo(nickname: "昵称001");
     List<String> names = ['张三', '李四', '王五'];
@@ -146,7 +149,6 @@ class _MyHomePageState extends State<MyHomePage> {
 
     User parsedUser = User.fromJson(json);
     print('反序列化用户: ${parsedUser.name} ${parsedUser.email}');
-
 
     //2 泛型
     String jsonString =
@@ -169,13 +171,11 @@ class _MyHomePageState extends State<MyHomePage> {
     Map<String, dynamic> jsonMap2 = apiResponse.toJson((user) => user.toJson());
 
     String jsonString2 = jsonEncode(jsonMap2);
-    print(
-      '序列化用户222: ${jsonString2}',
-    );
-
+    print('序列化用户222: ${jsonString2}');
 
     //3 泛型列表
-    String jsonString_liebiao = '{"code":200,"message":"操作成功","data":'
+    String jsonString_liebiao =
+        '{"code":200,"message":"操作成功","data":'
         '[{"id":1,"name":"测试用户222","eee":"test222@example.com","members":["张三","李四","王五"],"userInfo":{"nickname":"昵称001"}},'
         '{"id":2,"name":"测试用户333","eee":"test3333@example.com","members":["张三3","李四3","王五3"],"userInfo":{"nickname":"昵称003"}}]'
         '}';
@@ -193,11 +193,10 @@ class _MyHomePageState extends State<MyHomePage> {
       '反序列化用户333: ${apiResponse2.code} ${apiResponse2.message} ${apiResponse2.data?.first.name} ${apiResponse2.data?.first.email} ${apiResponse2.data?.last.name} ${apiResponse2.data?.last.email}',
     );
 
-    Map<String, dynamic> jsonMap_liebiao_3 = apiResponse2.toJson((userList) => userList.map((user) => user.toJson()).toList());
-    String jsonString3 = jsonEncode(jsonMap_liebiao_3);
-    print(
-      '序列化用户333: $jsonString3',
+    Map<String, dynamic> jsonMap_liebiao_3 = apiResponse2.toJson(
+      (userList) => userList.map((user) => user.toJson()).toList(),
     );
-
+    String jsonString3 = jsonEncode(jsonMap_liebiao_3);
+    print('序列化用户333: $jsonString3');
   }
 }
