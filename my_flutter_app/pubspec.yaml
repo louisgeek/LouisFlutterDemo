@@ -1,0 +1,28 @@
+name: my_flutter_app
+description: "A new Flutter project."
+publish_to: 'none'
+version: 0.1.0
+
+environment:
+  sdk: ^3.5.4 # 指定 Dart SDK 版本
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  shared_preferences: ^2.2.2
+
+  dio: ^5.9.0 # HTTP 请求库
+  retrofit: ^4.1.0 # 基于 Dio 的 RESTful API 客户端生成器
+
+  provider: ^6.1.1 # 状态管理
+
+  crypto: ^3.0.3 # 加密库
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^5.0.0 # Flutter 代码规范检查工具
+
+flutter:
+  uses-material-design: true # 是否使用 Material Design 风格

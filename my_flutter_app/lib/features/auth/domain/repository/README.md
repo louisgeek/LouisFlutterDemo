@@ -1,0 +1,1 @@
+只定义 repository 接口
